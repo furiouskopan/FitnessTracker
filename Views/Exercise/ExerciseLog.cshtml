@@ -1,0 +1,84 @@
+﻿@model FitnessTracker.ViewModels.ExerciseLogViewModel
+
+<style>
+    .form-group {
+        margin-bottom: 0.2rem;
+    }
+
+    .form-control {
+        max-width: 300px;
+    }
+
+    .btn {
+        margin-top: 1rem;
+    }
+
+    .label-tooltip {
+        cursor: pointer;
+    }
+
+    .whitetext {
+        color: white;
+    }
+</style>
+
+<div class="whitetext">
+    <h2 class="mb-4">Log Exercise</h2>
+    <form asp-controller="ExerciseLog" asp-action="Create" method="post">
+        <div asp-validation-summary="All"></div>
+
+        <div class="form-group">
+            <label asp-for="ExerciseId">Exercise:</label>
+            <select asp-for="ExerciseId" asp-items="@Model.Exercises" class="form-control"></select>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Date">Date:</label>
+            <input asp-for="Date" type="date" value="@DateTime.Today.ToString("yyyy-MM-dd")" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Weight">Weight:</label>
+            <input asp-for="Weight" type="number" min="0" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Reps">Reps:</label>
+            <input asp-for="Reps" type="number" min="1" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Sets">Sets:</label>
+            <input asp-for="Sets" type="number" min="1" max="10" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="RPE" class="label-tooltip" data-toggle="tooltip" data-placement="right" title="Rate of Perceived Exertion (RPE): On a scale of 1-10, how hard do you feel like you're working?">RPE:</label>
+            <input asp-for="RPE" type="number" min="5" max="10" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="RiR" class="label-tooltip" data-toggle="tooltip" data-placement="right" title="Reps in Reserve (RiR): This is the number of reps you feel you still could have done after your set.">RiR:</label>
+            <input asp-for="RiR" type="number" min="0" max="5" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Notes">Notes:</label>
+            <input asp-for="Notes" class="form-control" maxlength="60" />
+        </div>
+
+
+        <button type="submit" class="btn btn-primary">Log Exercise</button>
+        <a asp-action="Create" asp-controller="Exercise" class="btn btn-link">Add a new exercise</a>
+    </form>
+</div>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+}

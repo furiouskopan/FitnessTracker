@@ -1,0 +1,54 @@
+﻿@model IEnumerable<IGrouping<FitnessTracker.Models.Exercise, FitnessTracker.Models.ExerciseLog>>
+
+<div class="accordion" id="exerciseLogsAccordion">
+    @foreach (var exerciseGroup in Model)
+    {
+        <div class="card">
+            <div class="card-header" id="@($"heading{exerciseGroup.Key.Id}")">
+                <div class="d-flex justify-content-between">
+                    <h5 class="mb-0">
+                        <button style="font-weight:600" class="btn btn-link" type="button" data-toggle="collapse" data-target="@($"#collapse{exerciseGroup.Key.Id}")" aria-expanded="true" aria-controls="@($"collapse{exerciseGroup.Key.Id}")">
+                            @exerciseGroup.Key.Name
+                        </button>
+                    </h5>
+
+                    <a href="@Url.Action("Create", "ExerciseLog", new { exerciseId = exerciseGroup.Key.Id })" class="btn btn-primary">Add Log</a>
+                </div>
+            </div>
+            <div id="@($"collapse{exerciseGroup.Key.Id}")" class="collapse" aria-labelledby="@($"heading{exerciseGroup.Key.Id}")" data-parent="#exerciseLogsAccordion">
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th class="padded-cell">Weight</th>
+                                <th class="padded-cell">Reps</th>
+                                <th class="padded-cell">Sets</th>
+                                <th class="padded-cell">RiR</th>
+                                <th class="padded-cell">RPE</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var exerciseLog in exerciseGroup)
+                            {
+                                <tr>
+                                    <td class="padded-cell">@exerciseLog.Date.ToShortDateString()</td>
+                                    <td class="padded-cell">@exerciseLog.Weight</td>
+                                    <td class="padded-cell">@exerciseLog.Reps</td>
+                                    <td class="padded-cell">@exerciseLog.Sets</td>
+                                    <td class="padded-cell">@exerciseLog.RiR</td>
+                                    <td class="padded-cell">@exerciseLog.RPE</td>
+                                    <td>
+                                        <a href="@Url.Action("Update", "ExerciseLog", new { id = exerciseLog.Id })" class="btn btn-primary edit-btn">Edit</a>
+                                        <button type="button" class="btn btn-danger delete-btn" data-toggle="modal" data-target="#deleteModal" data-id="@exerciseLog.Id">Delete</button>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    }
+</div>
