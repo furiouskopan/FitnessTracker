@@ -14,6 +14,5 @@
 
         // Navigation properties
         public ICollection<ExerciseLog> ExerciseLogs { get; set; }
-
     }
 }
