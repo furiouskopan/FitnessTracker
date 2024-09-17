@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "y1Y0yRwwWpZzeyIO0bcHgMaZ5fqI4YyFbV5yVw3afYokmgQUQqvlMyJk9AwTPw+aFPX/umROuWCWDPzYW1QgSA==",
+  "dgSpecHash": "9QOc6qusRpY=",
   "success": true,
   "projectFilePath": "C:\\Users\\user\\source\\repos\\FitnessTracker\\FitnessTracker\\FitnessTracker.csproj",
   "expectedPackageFiles": [
@@ -64,7 +64,6 @@
     "C:\\Users\\user\\.nuget\\packages\\system.resources.resourcemanager\\4.3.0\\system.resources.resourcemanager.4.3.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\system.runtime\\4.3.0\\system.runtime.4.3.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\system.runtime.caching\\5.0.0\\system.runtime.caching.5.0.0.nupkg.sha512",
-    "C:\\Users\\user\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\system.security.accesscontrol\\5.0.0\\system.security.accesscontrol.5.0.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\system.security.cryptography.cng\\5.0.0\\system.security.cryptography.cng.5.0.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\system.security.cryptography.protecteddata\\5.0.0\\system.security.cryptography.protecteddata.5.0.0.nupkg.sha512",

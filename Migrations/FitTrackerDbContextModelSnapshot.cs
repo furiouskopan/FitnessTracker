@@ -65,7 +65,7 @@ namespace FitnessTracker.Migrations
                         .HasMaxLength(60)
                         .HasColumnType("nvarchar(60)");
 
-                    b.Property<int>("RPE")
+                    b.Property<int?>("RPE")
                         .HasColumnType("int");
 
                     b.Property<int>("Reps")

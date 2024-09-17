@@ -14,7 +14,7 @@ namespace FitnessTracker.ViewModels
         public int Reps { get; set; }
         public int? Weight { get; set; }
         public int Sets { get; set; }
-        public int RPE { get; set; }
+        public int? RPE { get; set; }
         public int? RiR { get; set; }
         [MaxLength(60)]
         public string? Notes { get; set; }

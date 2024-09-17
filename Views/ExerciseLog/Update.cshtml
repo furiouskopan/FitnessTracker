@@ -10,10 +10,6 @@
         max-width: 300px;
     }
 
-    .btn {
-        margin-top: 1rem;
-    }
-
     .label-tooltip {
         cursor: pointer;
     }
@@ -62,9 +58,12 @@
         border-radius: 4px;
         cursor: pointer;
     }
+    .whitetext {
+        color: white;
+    }
 </style>
 
-<div class="update-form">
+<div class="update-form whitetext">
     <h2>Update Exercise Log for @Model.ExerciseName</h2>
 
     <form asp-action="Update" method="post">
