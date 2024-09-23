@@ -36,7 +36,7 @@ namespace FitnessTracker.Controllers
             {
                 var exerciseLog = new ExerciseLog
                 {
-                    UserId = 1,
+                    UserId = "1",
                     ExerciseId = exerciseLogViewModel.ExerciseId,
                     Date = exerciseLogViewModel.Date,
                     Weight = exerciseLogViewModel.Weight,

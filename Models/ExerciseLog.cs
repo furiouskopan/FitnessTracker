@@ -15,7 +15,7 @@ namespace FitnessTracker.Models
         public string? Notes { get; set; }
 
         // Foreign key properties
-        public int UserId { get; set; }
+        public string UserId { get; set; }
         public int ExerciseId { get; set; }
 
         // Navigation properties
