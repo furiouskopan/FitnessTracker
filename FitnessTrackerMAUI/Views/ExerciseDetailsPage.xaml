@@ -1,0 +1,23 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FitnessTrackerMAUI.Views.ExerciseDetailsPage"
+             Title="Exercise Details">
+    <StackLayout Padding="10">
+        <Label Text="Exercise Name" FontSize="Medium" />
+        <Entry Text="{Binding SelectedExercise.Name}" Placeholder="Enter exercise name" />
+
+        <Label Text="Description" FontSize="Medium" />
+        <Editor Text="{Binding SelectedExercise.Description}" Placeholder="Enter description" HeightRequest="100" />
+
+        <Label Text="Muscle Group" FontSize="Medium" />
+        <Entry Text="{Binding SelectedExercise.MuscleGroup}" Placeholder="Enter muscle group" />
+
+        <Button Text="Update"
+                Command="{Binding UpdateExerciseCommand}"
+                Margin="0, 20, 0, 0" />
+        <Button Text="Delete"
+                Command="{Binding DeleteExerciseCommand}"
+                BackgroundColor="Red"
+                TextColor="White" />
+    </StackLayout>
+</ContentPage>

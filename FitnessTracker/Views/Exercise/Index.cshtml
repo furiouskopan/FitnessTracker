@@ -1,0 +1,51 @@
+﻿@model List<Exercise>
+
+<style>
+    /* Your existing styles from previous pages */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 1rem;
+    }
+
+    th, td {
+        padding: 0.5rem;
+        border-bottom: 1px solid #ccc;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    tr:hover {
+        background-color: #f9f9f9;
+    }
+    .whitetext{
+        color:white;
+    }
+</style>
+<div class="whitetext">
+    <h2>Exercise List</h2>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Muscle Group</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var exercise in Model)
+        {
+            <tr class="whitetext">
+                <td>@exercise.Name</td>
+                <td>@exercise.Description</td>
+                <td>@exercise.MuscleGroup</td>
+            </tr>
+        }
+    </tbody>
+</table>
+    

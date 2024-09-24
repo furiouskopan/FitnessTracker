@@ -1,0 +1,17 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:FitnessTrackerMAUI.ViewModels"
+             x:Class="FitnessTrackerMAUI.Views.AddExercisePage"
+             Title="Add Exercise">
+
+    <ContentPage.BindingContext>
+        <viewModels:ExerciseViewModel />
+    </ContentPage.BindingContext>
+
+    <StackLayout Padding="20">
+        <Entry Placeholder="Exercise Name" Text="{Binding NewExerciseName}" />
+        <Entry Placeholder="Muscle Group" Text="{Binding NewMuscleGroup}" />
+        <Entry Placeholder="Description" Text="{Binding NewExerciseDescription}" />
+        <Button Text="Save" Command="{Binding AddExerciseCommand}" />
+    </StackLayout>
+</ContentPage>

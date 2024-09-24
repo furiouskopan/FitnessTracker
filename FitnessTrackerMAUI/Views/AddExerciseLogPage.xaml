@@ -1,0 +1,34 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:FitnessTrackerMAUI.ViewModels"
+             x:Class="FitnessTrackerMAUI.Views.AddExerciseLogPage"
+             Title="Add Exercise Log">
+
+    <ContentPage.BindingContext>
+        <viewModels:AddExerciseLogViewModel />
+    </ContentPage.BindingContext>
+
+    <StackLayout Padding="20">
+        <Label Text="Exercise" />
+        <Picker ItemsSource="{Binding Exercises}"
+                ItemDisplayBinding="{Binding Name}"
+                SelectedItem="{Binding SelectedExercise}" />
+
+        <Label Text="Date" />
+        <DatePicker Date="{Binding Date}" />
+
+        <Label Text="Sets" />
+        <Entry Text="{Binding Sets}" Keyboard="Numeric" />
+
+        <Label Text="Reps" />
+        <Entry Text="{Binding Reps}" Keyboard="Numeric" />
+
+        <Label Text="Weight" />
+        <Entry Text="{Binding Weight}" Keyboard="Numeric" />
+
+        <Label Text="Notes" />
+        <Editor Text="{Binding Notes}" HeightRequest="100" />
+
+        <Button Text="Save" Command="{Binding SaveCommand}" />
+    </StackLayout>
+</ContentPage>

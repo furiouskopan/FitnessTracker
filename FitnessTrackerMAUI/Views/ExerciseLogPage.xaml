@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:FitnessTrackerMAUI.ViewModels"
+             x:Class="FitnessTrackerMAUI.Views.ExerciseLogPage"
+             Title="Exercise Logs">
+
+    <!-- Main Layout -->
+    <StackLayout Padding="10" BackgroundColor="#3A4E6D">
+        <!-- Search Bar -->
+        <SearchBar x:Name="searchBar" Placeholder="Search for exercise"
+                   TextChanged="OnSearchTextChanged" />
+
+        <!-- Grouped CollectionView -->
+        <CollectionView ItemsSource="{Binding ExerciseLogGroups}"
+                        IsGrouped="True">
+            <!-- Group Header Template to display exercise names -->
+            <CollectionView.GroupHeaderTemplate>
+                <DataTemplate>
+                    <StackLayout BackgroundColor="#007bff" Padding="10">
+                        <Label Text="{Binding ExerciseName}" FontAttributes="Bold" FontSize="Medium" TextColor="White" />
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.GroupHeaderTemplate>
+
+            <!-- ItemTemplate for each exercise log -->
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="10">
+                            <Label Text="{Binding Date, StringFormat='{0:MM/dd/yyyy}'}" FontSize="Medium" />
+                            <Label Text="{Binding Weight, StringFormat='{0} kg'}" />
+                            <Label Text="{Binding Reps}" />
+                            <Label Text="{Binding Sets}" />
+                            <!-- Actions like edit and delete -->
+                            <Button Text="Edit" Command="{Binding BindingContext.EditExerciseCommand, Source={x:Reference searchBar}}" CommandParameter="{Binding Id}" />
+                            <Button Text="Delete" Command="{Binding BindingContext.DeleteExerciseCommand, Source={x:Reference searchBar}}" CommandParameter="{Binding Id}" />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- Add New Log Button -->
+        <Button Text="Add New Log" Command="{Binding AddExerciseLogCommand}" BackgroundColor="#007bff" TextColor="White" />
+    </StackLayout>
+</ContentPage>
